@@ -8,9 +8,9 @@ Things to do:
 
 3, Use the SRA Accession list to download the PN and ORN sample fastq files.
 
-    cat /_(path to accession list)__/.txt | xargs -n 1 -P 4 prefetch
+    cat /_(path to accession list)_/.txt | xargs -n 1 -P 4 prefetch
     for srr in $(cat /_(path to accession list)__/.txt); do
-      fastq-dump --split-3 $srr
+      fastq-dump --split-3 --outdir /_(path to fastq storage place)_/ $srr
     done
     
 4, 
