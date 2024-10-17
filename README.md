@@ -14,11 +14,13 @@ Things to do:
       fastq-dump --split-3 --outdir /_(path to fastq storage place)_/ $srr
     done
     
-4, Run STAR to generate the output files. The command line code is written in [run_star.sh](https://github.com/GCphtf/Ten-a/tree/main/run_star.sh)
+4, Run STAR to generate the output files. The command line code is written in [run_star.sh](https://github.com/GCphtf/Ten-a/tree/main/run_star.sh). Change the path before using!
 
     ulimit -n 4096
+    chmod +x run_star.sh   #path to run_star should be added
+    ./run_star.sh
     
-    
+5, Having SRR....._SJ.out.tab in the directory, now use a python script to determine which cell has which junction.
 
 
 
