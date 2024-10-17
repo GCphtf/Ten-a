@@ -14,7 +14,11 @@ Things to do:
       fastq-dump --split-3 --outdir /_(path to fastq storage place)_/ $srr
     done
     
-4, 
+4, Run STAR to generate the output files. The command line code is written in [run_star.sh](https://github.com/GCphtf/Ten-a/tree/main/run_star.sh)
+
+    ulimit -n 4096
+    
+    
 
 
 
