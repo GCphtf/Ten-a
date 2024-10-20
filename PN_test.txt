@@ -1,0 +1,5 @@
+Found that some DA1 cells all mapped to 3' and 5'UTR region of Ten-a, decided to try more data.
+found some samples (in desktop/Ten-a project/SRR_Acc——List or ~/ten_a_isoform_project/PN_try_acc)
+
+Download with 
+
