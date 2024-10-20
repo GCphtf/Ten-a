@@ -31,6 +31,7 @@ for R1_GZ in "$FASTQ_DIR"/*_1.fastq.gz; do
              --readFilesIn "$R1" "$R2" \
              --outSJfilterReads Unique \
              --outFileNamePrefix "$OUTPUT_DIR/${BASE}_" \
+             --outSAMtype SAM
 
         echo "Processed $BASE"
 
