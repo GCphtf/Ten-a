@@ -16,7 +16,30 @@ for srr in $(cat ~/ten_a_isoform_project/PN_try_acc.txt); do
   gzip ~/ten_a_isoform_project/PN_fastq/${srr}_*.fastq
 done
 
+for srr in $(cat ~/ten_a_isoform_project/PN_try_acc.txt); do
+  rm -r ~/ten_a_isoform_project/$srr ~/ten_a_isoform_project/$srr
+done
+
 then run STAR for them with the shell file
+
+first download cdna reference in ~/ten_a_isoform_project:
+wget -r -np -nH --cut-dirs=5 -A '*.fa.gz' https://ftp.ensembl.org/pub/release-113/fasta/drosophila_melanogaster/cdna/
+
+Now get Drosophila_melanogaster.BDGP6.46.cdna.all.fa.gz
+
+Build STAR index: 
+gunzip -k ~/ten_a_isoform_project/Drosophila_melanogaster.BDGP6.46.cdna.all.fa.gz
+STAR --runThreadN 16 \
+     --runMode genomeGenerate \
+     --genomeDir ~/ten_a_isoform_project/genome_directory \
+     --genomeFastaFiles Drosophila_melanogaster.BDGP6.46.cdna.all.fa
+
+generate SAM:
+mv /mnt/c/Users/lilab/Desktop/Ten-a_project/PN_test_STAR.sh ~/ten_a_isoform_project
+
+ulimit -n 4096
+chmod +x ~/ten_a_isoform_project/PN_test_STAR.sh   #path to run_star should be added
+./PN_test_STAR.sh
 
 
 
