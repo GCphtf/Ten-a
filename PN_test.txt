@@ -41,5 +41,9 @@ ulimit -n 4096
 chmod +x ~/ten_a_isoform_project/PN_test_STAR.sh   #path to run_star should be added
 ./PN_test_STAR.sh
 
+for srr in $(cat ~/ten_a_isoform_project/PN_try_acc.txt); do
+  cp ${srr}_SJ.out.tab /mnt/c/Users/lilab/Desktop/Ten-a_project/PN_try_SJ
+  cp ${srr}_Aligned.out.sam /mnt/c/Users/lilab/Desktop/Ten-a_project/PN_try_SAM
+done
 
 
