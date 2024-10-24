@@ -15,22 +15,20 @@ Things to do:
 3, Use the SRA Accession list to download the PN and ORN sample fastq files.
     fastq files are stored in FastQ folder. The FastQ folder has PN, ORN, and test_DC3, test_DA1 subfolders.
 
-    cd Acc_List
-
-    cat PN_Acc.txt | xargs -n 1 -P 4 prefetch
-    cat ORN_Acc.txt | xargs -n 1 -P 4 prefetch
+    cat /public/home/tongchaogroup/yijielin/Acc_List/PN_Acc.txt | xargs -n 1 -P 4 prefetch
+    cat /public/home/tongchaogroup/yijielin/Acc_List/ORN_Acc.txt | xargs -n 1 -P 4 prefetch
     
-    for srr in $(cat PN_Acc.txt); do
-      fasterq-dump --outdir FastQ/PN $srr
-      gzip FastQ/PN/${srr}_1.fastq
-      gzip FastQ/PN/${srr}_2.fastq
+    for srr in $(cat /public/home/tongchaogroup/yijielin/Acc_List/PN_Acc.txt); do
+      fasterq-dump --outdir /public/home/tongchaogroup/yijielin/FastQ/PN $srr
+      gzip /public/home/tongchaogroup/yijielin/FastQ/PN/${srr}_1.fastq
+      gzip /public/home/tongchaogroup/yijielin/FastQ/PN/${srr}_2.fastq
       find /public/home/tongchaogroup/yijielin/FastQ/PN -type f -name "*.fastq" ! -name "*_1.fastq" ! -name "*_2.fastq" -exec rm {} +
     done
 
-    for srr in $(cat ORN_Acc.txt); do
-      fasterq-dump --outdir FastQ/ORN $srr
-      gzip FastQ/ORN/${srr}_1.fastq
-      gzip FastQ/ORN/${srr}_2.fastq
+    for srr in $(cat /public/home/tongchaogroup/yijielin/Acc_List/ORN_Acc.txt); do
+      fasterq-dump --outdir /public/home/tongchaogroup/yijielin/FastQ/ORN $srr
+      gzip /public/home/tongchaogroup/yijielin/FastQ/ORN/${srr}_1.fastq
+      gzip /public/home/tongchaogroup/yijielin/FastQ/ORN/${srr}_2.fastq
       find /public/home/tongchaogroup/yijielin/FastQ/ORN -type f -name "*.fastq" ! -name "*_1.fastq" ! -name "*_2.fastq" -exec rm {} +
     done
     
