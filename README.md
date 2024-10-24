@@ -19,14 +19,14 @@ Things to do:
     cat /public/home/tongchaogroup/yijielin/Acc_List/ORN_Acc.txt | xargs -n 1 -P 4 prefetch
     
     for srr in $(cat /public/home/tongchaogroup/yijielin/Acc_List/PN_Acc.txt); do
-      fasterq-dump --outdir /public/home/tongchaogroup/yijielin/FastQ/PN $srr
+      faster-dump --split-3 --outdir /public/home/tongchaogroup/yijielin/FastQ/PN $srr
       gzip /public/home/tongchaogroup/yijielin/FastQ/PN/${srr}_1.fastq
       gzip /public/home/tongchaogroup/yijielin/FastQ/PN/${srr}_2.fastq
       find /public/home/tongchaogroup/yijielin/FastQ/PN -type f -name "*.fastq" ! -name "*_1.fastq" ! -name "*_2.fastq" -exec rm {} +
     done
 
     for srr in $(cat /public/home/tongchaogroup/yijielin/Acc_List/ORN_Acc.txt); do
-      fasterq-dump --outdir /public/home/tongchaogroup/yijielin/FastQ/ORN $srr
+      faster-dump --split-3 --outdir /public/home/tongchaogroup/yijielin/FastQ/ORN $srr
       gzip /public/home/tongchaogroup/yijielin/FastQ/ORN/${srr}_1.fastq
       gzip /public/home/tongchaogroup/yijielin/FastQ/ORN/${srr}_2.fastq
       find /public/home/tongchaogroup/yijielin/FastQ/ORN -type f -name "*.fastq" ! -name "*_1.fastq" ! -name "*_2.fastq" -exec rm {} +
