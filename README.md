@@ -5,9 +5,9 @@ Things to do:
     
     Set the SRA configuration by vdb-config -i, set the Cache path.
 
-2, From GSE162121(?) and GSE161228 find the [SRA Accession list](https://github.com/GCphtf/Ten-a/tree/main/Accession_List) and download. (Done)
-    JH provided ORN: GSE143038
-    Liyuan used PN: GSE161228
+2, From GSE143038 and GSE161228 find the [SRA Accession list](https://github.com/GCphtf/Ten-a/tree/main/Accession_List) and download.
+    need to first filter PN: 24h  ORN: 48h
+    another orn:GSE162121, need to further separate 48apf and adult.
 
     The accession lists are downloaded in the Acc_List folder.
     Ways to download the accession lists by wget will be updated later.
