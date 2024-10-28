@@ -1,4 +1,11 @@
 # Ten-a
+
+Junction for Ten-a-b:
+12194224 - 12195768 ; 12196624 - 12197185
+
+Ten-a-a:
+12230371 - 12273934
+
 Things to do:
 
 1, download miniconda3, then use miniconda3 to download SRA Toolkit, STAR, kallisto (Done)
