@@ -1,0 +1,18 @@
+import pandas as pd
+df_logCPM_all = pd.read_csv("/Users/gc/Desktop/Tena-WGCNA/FlyORN/data/htseq_logCPM_hq.tab", sep="\t", header=0, index_col=0) # CPM
+df_libs = pd.read_csv("/Users/gc/Desktop/Tena-WGCNA/FlyORN/data/libs_color3_batch.csv", sep=",", header=0, index_col=0)
+names_hq_neurons = []
+with open("/Users/gc/Desktop/Tena-WGCNA/FlyORN/data/names_hq_neurons.txt") as f:
+    for line in f:
+        names_hq_neurons.append(line.rstrip())
+selector = ((df_libs["genotype"] == "GH146-GFP") & (df_libs["num_cells"] ==1))
+names_PN = [x for x in list(df_logCPM_all.columns) if x in df_libs.loc[selector].index and x in names_hq_neurons]
+selector0,selector1,selector2,selector3 = (df_libs["label"] == "nSyb_48h_ORN_P0"),(df_libs["label"] == "nSyb_48h_ORN_P1"),(df_libs["label"] == "nSyb_48h_ORN_P2"),(df_libs["label"] == "nSyb_48h_ORN_P3")
+names_ORN = [x for x in list(df_logCPM_all.columns) if ((x in df_libs.loc[selector0].index) or (x in df_libs.loc[selector1].index) or (x in df_libs.loc[selector2].index) or (x in df_libs.loc[selector3].index)) and x in names_hq_neurons]
+X_PN,X_ORN,X_PN_ORN = df_logCPM_all[list(names_PN)].T,df_logCPM_all[list(names_ORN)].T,df_logCPM_all[list(names_PN + names_ORN)].T
+
+X_PN.to_csv('/Users/gc/Desktop/Tena-WGCNA/expression_tables/PN.csv')
+X_ORN.to_csv('/Users/gc/Desktop/Tena-WGCNA/expression_tables/ORN.csv')
+X_PN_ORN.to_csv('/Users/gc/Desktop/Tena-WGCNA/expression_tables/PN_ORN.csv')
+
+
